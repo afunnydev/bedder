@@ -1,0 +1,35 @@
+# import * from "./datamodel.graphql"
+
+type Message {
+  message: String!
+}
+
+type Mutation {
+  # Auth
+  facebookSignup(payload: String!): User!
+  signUp(email: String!, password: String!, firstname: String, lastname: String): User!
+  validateAccount(email: String!, code: String!): User!
+  # Admin
+  toggleBlockUser(userId: Int!): Message!
+  updateBusinessStatus(businessId: Int!, status: Int!): Message!
+  # User
+  addReview(bookingId: Int!, ratingMoney: Int!, ratingStaff: Int!, ratingLocation: Int!, ratingCleanliness: Int!, ratingServices: Int!, description: String): Message!
+  addBusiness(name: String!, ownerEmail: String!, ownerPhone: String): Business
+  addPhone(number: String!): Message!
+  verifyPhone(code: String!, number: String!): Message!
+  updateBusiness(business: BusinessUpdateInput!): Message!
+  checkout(businessUnitId: Int!, to: String!, from: String!, numUnitsToBook: Int!, stripeToken: String!): Booking!
+  createTicket(subject: String!, message: String!): SupportTicket
+}
+
+type Query {
+  businessReviews(businessId: Int!): [Review]
+  business(businessId: Int!): Business
+  booking(bookingId: Int!): Booking
+  # Admin
+  users: [User]
+  user(id: Int!): User
+  businesses: [Business]
+  bookings: [Booking]
+  businessQuotes(businessId: Int!, from: String!, to: String!, minPersons: Int!, numBed: Int!): [BusinessUnit]
+}

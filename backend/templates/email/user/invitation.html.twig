@@ -1,0 +1,70 @@
+{% extends 'email/email-base.html.twig' %}
+
+{% block title %}Create your account{% endblock %}
+
+{% block preview %}
+    You've been invited to create an account on Bedder Travel.
+{% endblock %}
+
+{% block body %}
+<table class="wrapper" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+    <tr>
+        <td align="center" bgcolor="#F9F5F4" class="px-sm-16">
+            <table class="container" cellpadding="0" cellspacing="0" role="presentation" width="600">
+                <tr>
+                    <td bgcolor="#8C403F">
+                        <!--[if gte mso 9]>
+                        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;">
+                            <v:fill type="gradient" color="#0072FF" color2="#00C6FF" angle="90" />
+                            <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+                                <div><![endif]-->
+                        <div class="spacer line-height-sm-0 py-sm-16" style="line-height: 32px;">&zwnj;</div>
+                        <table cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                            <tr>
+                                <td align="center" class="px-sm-16" style="padding: 0 96px;">
+                                    <h1 class="webfont h1" style="color: #FFFFFF; font-size: 36px; font-weight: 300; line-height: 100%; margin: 0;">Create your account</h1>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="spacer line-height-sm-0 py-sm-16" style="line-height: 40px;">&zwnj;</div>
+                        <!--[if gte mso 9]></div></v:textbox></v:rect><![endif]-->
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<table class="wrapper" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+    <tr>
+        <td class="px-sm-16" align="center" bgcolor="#F9F5F4">
+            <table class="container" cellpadding="0" cellspacing="0" role="presentation" width="600">
+                <tr>
+                    <td class="px-sm-8" align="left" bgcolor="#FFFFFF" style="padding: 0 24px;">
+                        <div class="spacer line-height-sm-0 py-sm-8" style="line-height: 24px;">&zwnj;</div>
+                        <table cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                            <tr>
+                                <td class="col px-sm-16" align="center" width="100%" style="padding: 0 64px;">
+                                    <p style="color: #6B6B6B; font-size: 16px; line-height: 24px; margin: 0;">You've been invited by {{ inviterName }} ({{ inviterEmail }}) to create an account on <a href="https://www.beddertravel.com/">Bedder Travel</a>.</p>
+                                    <p style="color: #6B6B6B; font-size: 16px; line-height: 24px; margin: 0;">This account will be useful to manage "{{ businessName }}" on our platform.</p>
+                                    <div class="spacer" style="line-height: 32px;">&zwnj;</div>
+                                    <table cellpadding="0" cellspacing="0" role="presentation">
+                                        <tr>
+                                            <td class="webfont hover-scale" bgcolor="#8C403F" style="border-radius: 3px; transition: all 0.3s ease-in-out 0s; mso-padding-alt: 6px 32px 12px; background: linear-gradient(to right, #523E88, #8C403F);">
+                                                <a href="https://app.beddertravel.com/auth/signUp" style="color: #FFFFFF; display: inline-block; font-size: 14px; font-weight: 700; padding: 12px 32px; text-decoration: none;">Create account now</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="spacer line-height-sm-0 py-sm-8" style="line-height: 32px;">&zwnj;</div>
+                        <p style="color: #999999; margin: 0; font-size: 13px; line-height: 22px; text-align: center;">Thanks<br>The Bedder Team</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{% endblock %}
+

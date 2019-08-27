@@ -1,0 +1,19 @@
+# Read the documentation: https://symfony.com/doc/master/bundles/FOSRestBundle/index.html
+fos_rest:
+  param_fetcher_listener:
+    enabled: true
+  allowed_methods_listener: 
+    enabled: true
+  view:
+    view_response_listener: 'force'
+    formats:
+      json: true
+  exception:
+    codes:
+      'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+    messages:
+      'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+  format_listener:
+    enabled: true
+    rules:
+      - { path: ^/api, prefer_extension: true, fallback_format: json, priorities: [ json ] }

@@ -1,0 +1,8 @@
+florianv_swap:
+    providers:
+        currency_layer:                    # currencylayer
+            access_key: "%env(CURRENCY_LAYER_API_KEY)%"
+            enterprise: false
+    cache:
+        ttl: 86400
+        type: filesystem

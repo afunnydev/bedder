@@ -1,0 +1,74 @@
+{% extends 'email/email-base.html.twig' %}
+
+{% block title %}Confirm Your Email{% endblock %}
+
+{% block preview %}
+Please confirm your email.
+{% endblock %}
+
+{% block body %}
+<table cellpadding="0" cellspacing="0" class="wrapper" role="presentation" width="100%">
+    <tr>
+        <td align="center" bgcolor="#F9F5F4" class="px-sm-16">
+            <table cellpadding="0" cellspacing="0" class="container" role="presentation" width="600">
+                <tr>
+                    <td
+                        bgcolor="#8C403F">
+                        <!--[if gte mso 9]>
+                                                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;">
+                                                    <v:fill type="gradient" color="#0072FF" color2="#00C6FF" angle="90" />
+                                                    <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+                                                        <div><![endif]-->
+                        <div class="spacer line-height-sm-0 py-sm-16" style="line-height: 32px;">&zwnj;</div>
+                        <table cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                            <tr>
+                                <td align="center" class="px-sm-16" style="padding: 0 96px;">
+                                    <h1 class="webfont h1" style="color: #FFFFFF; font-size: 36px; font-weight: 300; line-height: 100%; margin: 0;">Confirm Email</h1>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="spacer line-height-sm-0 py-sm-16" style="line-height: 40px;">&zwnj;</div>
+                        <!--[if gte mso 9]></div></v:textbox></v:rect><![endif]-->
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" class="wrapper" role="presentation" width="100%">
+    <tr>
+        <td align="center" bgcolor="#F9F5F4" class="px-sm-16">
+            <table cellpadding="0" cellspacing="0" class="container" role="presentation" width="600">
+                <tr>
+                    <td align="left" bgcolor="#FFFFFF" class="px-sm-8" style="padding: 0 24px;">
+                        <div class="spacer line-height-sm-0 py-sm-8" style="line-height: 24px;">&zwnj;</div>
+                        <table cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                            <tr>
+                                <td align="center" class="col px-sm-16" style="padding: 0 64px;" width="100%">
+                                    <h2 style="color: #6B6B6B; font-size: 24px; font-weight: 300; line-height: 28px; margin: 0 0 24px;">Hi
+                                        {{ name }},</h2>
+                                    <p style="color: #6B6B6B; font-size: 16px; line-height: 24px; margin: 0;">Your code is:
+                                        <span style="color: #000000; font-size: 28px;">{{ code }}</p>
+                                    </p>
+                                    <p style="color: #6B6B6B; font-size: 16px; line-height: 24px; margin: 0;">Thank you for creating an account.</p>
+                                    <div class="spacer" style="line-height: 24px;">&zwnj;</div>
+                                    <table cellpadding="0" cellspacing="0" role="presentation">
+                                        <tr>
+                                            <td bgcolor="#8C403F" class="webfont hover-scale" style="border-radius: 3px; transition: all 0.3s ease-in-out 0s; mso-padding-alt: 6px 32px 12px; background: linear-gradient(to right, #523E88, #8C403F);">
+                                                <a href="{{ link }}" style="color: #FFFFFF; display: inline-block; font-size: 14px; font-weight: 700; padding: 12px 32px; text-decoration: none;">Confirm email</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="spacer" style="line-height: 24px;">&zwnj;</div>
+                        <p style="color: #999999; margin: 0; font-size: 13px; line-height: 22px; text-align: center;">Thanks<br>The Bedder Team</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{% endblock %}

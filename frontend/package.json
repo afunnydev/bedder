@@ -1,0 +1,81 @@
+{
+  "name": "new-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.0.1",
+    "@material-ui/icons": "^4.0.1",
+    "apollo-cache-inmemory": "^1.6.0",
+    "apollo-cache-persist": "^0.1.1",
+    "apollo-client": "^2.6.0",
+    "apollo-link": "^1.2.11",
+    "apollo-link-context": "^1.0.17",
+    "apollo-link-error": "^1.1.10",
+    "apollo-link-http": "^1.5.14",
+    "graphql": "^14.3.1",
+    "graphql-tag": "^2.10.1",
+    "immutable": "^4.0.0-rc.12",
+    "lockr": "^0.8.5",
+    "lodash": "^4.17.11",
+    "material-ui": "^0.20.2",
+    "material-ui-phone-number": "^1.6.1",
+    "material-ui-slider": "^3.0.0",
+    "moment": "^2.24.0",
+    "mui-places-autocomplete": "^2.0.0",
+    "netlify-cms": "^2.9.1",
+    "notistack": "^0.8.5",
+    "react": "^16.8.6",
+    "react-alice-carousel": "^1.15.2",
+    "react-apollo": "^2.5.6",
+    "react-datepicker": "^2.5.0",
+    "react-dom": "^16.8.6",
+    "react-facebook-login": "^4.1.1",
+    "react-google-maps": "^9.4.5",
+    "react-helmet": "^5.2.1",
+    "react-loadable": "^5.5.0",
+    "react-markdown": "^4.0.8",
+    "react-redux": "^7.0.3",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "react-share": "^3.0.0",
+    "react-stripe-checkout": "^2.6.3",
+    "react-validation-framework": "^5.1.0",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-form": "^8.2.1",
+    "redux-immutable": "^4.0.0",
+    "redux-saga": "^1.0.2",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
+    "sanitize.css": "^9.0.0",
+    "styled-components": "^4.2.0",
+    "uploadcare-widget": "^3.7.5",
+    "validator": "^11.0.0",
+    "with-context": "^0.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.5.0"
+  }
+}

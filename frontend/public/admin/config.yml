@@ -1,0 +1,45 @@
+backend:
+  name: git-gateway
+  accept_roles: #optional - accepts all users if left out
+    - admin
+  branch: master # Branch to update (master by default)
+
+media_folder: "public/images" # Folder where user uploaded files should go
+public_folder: "/images" # The src attribute for uploaded media will begin with
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    editor:
+      preview: false
+    files:
+      - name: "faq"
+        label: "FAQ"
+        file: "src/containers/FaqPage/data.json"
+        description: "Texte pour la page FAQ"
+        fields:
+          - name: questions
+            label: "Questions"
+            widget: list
+            allow_add: true
+            fields:
+              - {label: "Question", name: "question", widget: "string"}
+              - {label: "Réponse", name: "answer", widget: "text"}
+      - name: "about"
+        label: "About"
+        file: "src/containers/AboutPage/data.json"
+        description: "Texte pour la page About"
+        fields:
+          - {label: "Texte", name: "text", widget: "markdown"}
+      - name: "privacy-policy"
+        label: "Privacy Policy"
+        file: "src/containers/PrivacyPolicyPage/data.json"
+        description: "Text for your privacy policy"
+        fields:
+          - {label: "Texte", name: "text", widget: "markdown"}
+      - name: "terms-and-conditions"
+        label: "Terms and conditions"
+        file: "src/containers/TermsPage/data.json"
+        description: "Text for your terms and conditions"
+        fields:
+          - {label: "Texte", name: "text", widget: "markdown"}

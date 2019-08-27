@@ -1,0 +1,2 @@
+flosch_stripe:
+  stripe_api_key: '%env(STRIPE_API_KEY)%'

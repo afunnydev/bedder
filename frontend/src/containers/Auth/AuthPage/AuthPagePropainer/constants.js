@@ -1,0 +1,14 @@
+/*
+ *
+ * AuthPagePropainer constants
+ *
+ */
+
+export const CHANGE_FACEBOOKSUBMITTING =
+  'app/AuthPage/CHANGE_FACEBOOKSUBMITTING';
+export const CHANGE_FACEBOOKRESULT = 'app/AuthPage/CHANGE_FACEBOOKRESULT';
+export const CHANGE_FACEBOOKERROR = 'app/AuthPage/CHANGE_FACEBOOKERROR';
+export const CHANGE_FACEBOOKOAUTHRESULT =
+  'app/AuthPage/CHANGE_FACEBOOKOAUTHRESULT';
+export const SUBMITFACEBOOK = 'app/AuthPage/SUBMITFACEBOOK';
+export const SUCCESSFACEBOOK = 'app/AuthPage/SUCCESSFACEBOOK';

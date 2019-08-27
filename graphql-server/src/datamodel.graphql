@@ -1,0 +1,161 @@
+enum Roles {
+  ROLE_USER
+  ROLE_EXPLORER
+  ROLE_OWNER
+  ROLE_ADMIN
+  ROLE_SUPPORT_ADMIN
+  ROLE_SUPPORT
+}
+
+type Date {
+  date: String!
+  timezone_type: Int!
+  timezone: String!
+}
+
+type Address {
+  id: Int!
+  zip: String
+  country: String
+  city: String
+  street: String
+  address: String
+  address2: String
+  lat: String
+  lon: String
+}
+
+type File {
+  id: Int!
+  url: String!
+  uuid: String!
+}
+
+type BusinessUnit {
+  id: Int!
+  parentId: Int
+  name: String!
+  numUnits: Int
+  bedsKing: Int
+  bedsQueen: Int
+  bedsSimple: Int
+  maxPersons: Int
+  equipment: String
+  files: [File]
+  rate: Int
+  currency: String
+  isDeleted: Boolean
+  isNew: Boolean
+  available: Int
+  quote: Int
+  deposit: Int
+  toPayThere: Int
+  acceptAutomatically: Boolean
+}
+
+type Business {
+  id: Int!
+  name: String!
+  reviewsNum: Int!
+  reviewsAvg: Int!
+  bookingsCount: Int!
+  status: Int!
+  units: [BusinessUnit]
+  reviews: [Review]
+  address: Address!
+  stars: Int
+  mood: String
+  propertyType: String
+  amenities: String
+  around: String
+  opinionStrong: String
+  opinionWeak: String
+  howToFind: String
+  activities: String
+  coverPhotos: [File]
+  smsValidation: Boolean
+}
+
+input BusinessUpdateInput {
+  id: Int!
+  name: String!
+  status: String
+  description: String
+  stars: Int
+  mood: String
+  propertyType: String
+  amenities: String
+  around: String
+  opinionStrong: String
+  opinionWeak: String
+  howToFind: String
+  activities: String
+  coverPhotos: String
+  smsValidation: Boolean
+  #address
+  zip: String
+  country: String
+  city: String
+  street: String
+  address: String!
+  address2: String
+  lat: String!
+  lon: String!
+  #businessUnits
+  businessUnits: String
+}
+
+type Review {
+  id: Int!
+  body: String
+  user: User!
+  rating: Int!
+  date: Date!
+  room: BusinessUnit!
+}
+
+type Booking {
+  id: Int!
+  amount: Int!
+  businessUnit: BusinessUnit!
+  business: Business!
+  status: Int!
+  from: String!
+  to: String!
+  user: User!
+}
+
+type SupportTicket {
+  id: Int!
+  name: String
+  subject: String
+  message: String!
+  fromUser: User!
+  status: Int!
+  type: Int!
+}
+
+type Phone {
+  id: Int!
+  number: String!
+  country: String!
+}
+
+type User {
+  id: Int!
+  email: String!
+  firstname: String!
+  lastname: String
+  name: String
+  isBlocked: Boolean
+  roles: [Roles]
+  phone: Phone
+  about: String 
+  token: String
+  debit: Int
+  credit: Int
+  bookings: [Booking]
+  businesses: [Business]
+  supportTickets: [SupportTicket]
+  explorerEarning: Int!
+}

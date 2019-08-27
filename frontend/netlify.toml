@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Cache-Control = "must-revalidate, max-age=600"
+    Cache-Control = "no-store, no-cache"
