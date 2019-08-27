@@ -1,22 +1,35 @@
-# Bedder
-
-## Frontend
-
-## Backend
+# Backend
 
 The backend of the project uses Symfony. The current version is Symfony 4.3.
 
-### Routing
+## Setup
+
+Install the dependencies
+
+```
+composer install
+```
+
+Create your environment variables
+
+```
+touch .env.local
+nano .env.local
+```
+
+and overwrite any necessary variables from the ```.env``` file.
+
+## Routing
 
 We use **annotations** to make the routing of our application. The routing is annotated directly in our controllers (https://symfony.com/doc/current/routing.html)
 
-### Database
+## Database
 
 This project uses Doctrine as an ORM for a MySQL database.
 
-### Authentication
+## Authentication
 
-### Email Templates
+## Email Templates
 
 All email templates are currently in ```templates/email```. We are using the Symfony Mailer and Twig.
 
@@ -40,7 +53,7 @@ You can add a new email template by adding a new .html.twig file in this folder 
 
 If you want to embed images, upload them on Uploadcare and use their link, it will be easier.
 
-### SMS Templates
+## SMS Templates
 
 All SMS templates are currently in ```templates/sms```. We are using some XML templates.
 
@@ -67,7 +80,7 @@ $response->headers->set('Content-Type', 'text/xml');
 return $response;
 ```
 
-### API Utils
+## API Utils
 
 When the ressource is not found:
 

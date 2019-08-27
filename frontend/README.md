@@ -1,10 +1,23 @@
+# Frontend
+
+The frontend of the project uses React.js, with create-react-app. It is on React Scripts 3.0.1 and React 16.8.
+
 ## Setup
 
-git clone this repo and ```yarn```to install the dependencies.
+Install the dependencies using ```yarn```.
 
-### Endpoints
+Your graphQL and backend endpoints are defined in the ```.env``` file. You can overwrite them by creating a ```.env.local```.
 
-The endpoint for saga/thunk (used by redux to fetch the API) are in ```src/bedder/bedderConfig.js``` and ```src/bedder/bedderSetting.js```. Please make sure you query to live endpoint, and not the local. The endpoints for the GraphQL server can be found in ```src/utils/createClient.js```. If you're not using the local graphql endpoint, you should change the ```endpoint```for the live one.
+```
+touch .env.local
+nano .env.local
+
+# .env.local
+REACT_APP_GRAPHQL_ENDPOINT="http://localhost:4000"
+REACT_APP_BACKEND_ENDPOINT="http://localhost:8000/api"
+```
+
+Don't put anything sensitive into the .env file since it will visible publicly and in the bundle created by React.
 
 ### GraphQL and Redux
 

@@ -1,8 +1,6 @@
-import { backendDevEndpoint, backendProdEndpoint } from 'utils/constants';
-
 class BedderConfig {
   constructor() {
-    this.apiUrl = process.env.NODE_ENV === 'development' ? backendDevEndpoint : backendProdEndpoint;
+    this.apiUrl = process.env.REACT_APP_BACKEND_ENDPOINT;
   }
 
   getApiUrl() {

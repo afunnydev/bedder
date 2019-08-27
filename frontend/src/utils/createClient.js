@@ -4,11 +4,10 @@ import { setContext } from 'apollo-link-context';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import gql from 'graphql-tag';
 
-import { graphqlDevEndpoint, graphqlProdEndpoint } from './constants';
 import BedderConfig from 'bedder/bedderConfig';
 
 const httpLink = createHttpLink({
-  uri: process.env.NODE_ENV === 'development' ? graphqlDevEndpoint : graphqlProdEndpoint,
+  uri: process.env.REACT_APP_GRAPHQL_ENDPOINT
 });
 
 const authLink = setContext((_, { headers }) => {

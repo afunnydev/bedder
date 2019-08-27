@@ -1,12 +1,12 @@
-# Bedder Travel
+# GraphQL Server
+
+This project uses an Apollo Server as a middleware between the frontend and the backend.
 
 ## Setup
 
-Clone this repo.
+Install the dependencies
 
 ```
-git clone https://akiamarketing@bitbucket.org/akiamarketingteam/bedder-graphql.git
-cd bedder-graphql
 npm install
 ```
 
@@ -21,8 +21,8 @@ and input into the file the following.
 
 ```
 FRONTEND_URL="http://localhost:3000"
-BACKEND_URL="https://api.beddertravel.com/app.php/api/v1"
-# if you use a local version of the backend, you can use http://localhost:8000/app.php/api/v1
+BACKEND_URL="https://api.beddertravel.com/api"
+# if you use a local version of the backend, you can use http://localhost:8000/api
 ```
 
 ## Modifications
