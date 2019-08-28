@@ -30,12 +30,12 @@ class Notification implements \JsonSerializable
     private $message;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
     private $created_at;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
      */
     private $updated_at;
 

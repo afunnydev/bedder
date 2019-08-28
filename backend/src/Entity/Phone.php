@@ -10,6 +10,7 @@ use App\Validator\Constraints as AppAssert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PhoneRepository")
  * @ORM\Table(name="phone")
+ * @ORM\HasLifecycleCallbacks
  */
 class Phone implements \JsonSerializable
 {
@@ -55,19 +56,26 @@ class Phone implements \JsonSerializable
     private $user;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
     private $created_at;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
      */
     private $updated_at;
 
-    public function __construct()
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps(): void
     {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
+        $dateTimeNow = new \DateTime('now');
+        $this->setUpdatedAt($dateTimeNow);
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt($dateTimeNow);
+        }
     }
 
     public function jsonSerialize()

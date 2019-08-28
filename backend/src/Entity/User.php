@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\Table(name="users")
+ * @ORM\HasLifecycleCallbacks
  */
 class User implements UserInterface, \JsonSerializable
 {
@@ -57,13 +58,13 @@ class User implements UserInterface, \JsonSerializable
 
     /**
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=50)
      */
     private $firstname;
 
     /**
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=50)
      */
     private $lastname;
 
@@ -74,7 +75,7 @@ class User implements UserInterface, \JsonSerializable
     private $about;
 
     /**
-     * @ORM\Column(type="string", unique=true)
+     * @ORM\Column(type="string", length=100, unique=true)
      */
     private $email;
 
@@ -84,19 +85,14 @@ class User implements UserInterface, \JsonSerializable
     private $password;
 
     /**
-     * @ORM\Column(type="json_array")
+     * @ORM\Column(type="json")
      */
-    private $roles;
+    private $roles = [];
 
     /**
-     * @ORM\OneToOne(targetEntity="Phone", inversedBy="user")
+     * @ORM\Column(type="string", length=1000, nullable=true)
      */
-    private $phone;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $facebookPayload;
+    private $facebookPayload = null;
 
     /**
      * @ORM\Column(type="bigint", nullable=true, unique=true)
@@ -104,19 +100,24 @@ class User implements UserInterface, \JsonSerializable
     private $facebookId;
 
     /**
-     * @ORM\OneToOne(targetEntity="File")
-     */
-    private $photos;
-
-    /**
-     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
     private $created_at;
 
     /**
-     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
      */
     private $updated_at;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Phone", inversedBy="user")
+     */
+    private $phone;
+
+    /**
+     * @ORM\OneToOne(targetEntity="File")
+     */
+    private $photos;
 
     /**
      * @ORM\OneToMany(targetEntity="Business", mappedBy="manageUser")
@@ -155,13 +156,24 @@ class User implements UserInterface, \JsonSerializable
 
     public function __construct()
     {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
         $this->manageBusinesses = new ArrayCollection();
         $this->ownerBusinesses = new ArrayCollection();
         $this->bookings = new ArrayCollection();
         $this->supportTickets = new ArrayCollection();
         $this->gains = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps(): void
+    {
+        $dateTimeNow = new \DateTime('now');
+        $this->setUpdatedAt($dateTimeNow);
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt($dateTimeNow);
+        }
     }
 
 

@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AddressRepository")
  * @ORM\Table(name="addresses")
+ * @ORM\HasLifecycleCallbacks
  */
 class Address implements \JsonSerializable
 {
@@ -54,12 +55,12 @@ class Address implements \JsonSerializable
     private $lon = "0";
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
     private $created_at;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
      */
     private $updated_at;
 
@@ -68,10 +69,17 @@ class Address implements \JsonSerializable
      */
     private $business;
 
-    public function __construct()
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps(): void
     {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
+        $dateTimeNow = new \DateTime('now');
+        $this->setUpdatedAt($dateTimeNow);
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt($dateTimeNow);
+        }
     }
 
     public function jsonSerialize()

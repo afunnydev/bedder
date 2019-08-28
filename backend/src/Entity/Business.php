@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\Criteria;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BusinessRepository")
  * @ORM\Table(name="businesses")
+ * @ORM\HasLifecycleCallbacks
  */
 class Business implements \JsonSerializable
 {
@@ -95,12 +96,12 @@ class Business implements \JsonSerializable
     private $reviewsAvg = 0;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
     private $created_at;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
      */
     private $updated_at;
 
@@ -139,10 +140,21 @@ class Business implements \JsonSerializable
      */
     private $address;
 
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps(): void
+    {
+        $dateTimeNow = new \DateTime('now');
+        $this->setUpdatedAt($dateTimeNow);
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt($dateTimeNow);
+        }
+    }
+
     public function __construct()
     {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
         $this->businessUnits = new ArrayCollection();
         $this->coverPhotos = new ArrayCollection();
         $this->bookings = new ArrayCollection();

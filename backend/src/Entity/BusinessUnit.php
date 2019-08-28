@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BusinessUnitRepository")
  * @ORM\Table(name="business_units")
+ * @ORM\HasLifecycleCallbacks
  */
 class BusinessUnit implements \JsonSerializable
 {
@@ -74,12 +75,12 @@ class BusinessUnit implements \JsonSerializable
     private $bedsSimple;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
     private $created_at;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
      */
     private $updated_at;
 
@@ -113,10 +114,21 @@ class BusinessUnit implements \JsonSerializable
      */
     private $parentBusinessUnit;
 
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps(): void
+    {
+        $dateTimeNow = new \DateTime('now');
+        $this->setUpdatedAt($dateTimeNow);
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt($dateTimeNow);
+        }
+    }
+
     public function __construct()
     {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
         $this->files = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->bookings = new ArrayCollection();

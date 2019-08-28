@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BillingRepository")
  * @ORM\Table(name="billings")
+ * @ORM\HasLifecycleCallbacks
  */
 class Billing implements \JsonSerializable
 {
@@ -34,12 +35,12 @@ class Billing implements \JsonSerializable
     private $amount = 0;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
     private $created_at;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
      */
     private $updated_at;
 
@@ -48,11 +49,17 @@ class Billing implements \JsonSerializable
      */
     private $user;
 
-    public function __construct()
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps(): void
     {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
-        //        $this->files = new ArrayCollection();
+        $dateTimeNow = new \DateTime('now');
+        $this->setUpdatedAt($dateTimeNow);
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt($dateTimeNow);
+        }
     }
 
     public function jsonSerialize()
