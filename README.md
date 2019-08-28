@@ -20,4 +20,8 @@ git subtree push --prefix graphql-server heroku-graphql master
 
 This project uses Symfony 4 on the backend. More info in the ```backend``` folder.
 
-It is deployed by Dokku by pushing on the dokku origin. See example for GraphQL Server up there.
+It is deployed on Heroku by pushing on the heroku origin. For example, if the origin is ```heroku-backend```:
+
+```
+git subtree push --prefix backend heroku-backend master
+```

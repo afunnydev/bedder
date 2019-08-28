@@ -115,14 +115,14 @@ const BusinessItem = ({ classes, business }) => (
         {business.bookingsCount} reservations
       </Typography>
       <FacebookShareButton
-        url={`https://app.beddertravel.com/business/${business.id}`}
+        url={`https://www.beddertravel.com/business/${business.id}`}
         className={classes.shareDiv}
         quote={`Discover ${business.name} on Bedder Travel.`}
       >
         <FacebookIcon size={32} round />
       </FacebookShareButton>
       <TwitterShareButton
-        url={`https://app.beddertravel.com/business/${business.id}`}
+        url={`https://www.beddertravel.com/business/${business.id}`}
         className={classes.shareDiv}
         title={`Discover ${business.name} on Bedder Travel.`}
         via="beddertravel"
@@ -130,14 +130,14 @@ const BusinessItem = ({ classes, business }) => (
         <TwitterIcon size={32} round />
       </TwitterShareButton>
       <WhatsappShareButton
-        url={`https://app.beddertravel.com/business/${business.id}`}
+        url={`https://www.beddertravel.com/business/${business.id}`}
         className={classes.shareDiv}
         quote={`Discover ${business.name} on Bedder Travel.`}
       >
         <WhatsappIcon size={32} round />
       </WhatsappShareButton>
       <EmailShareButton
-        url={`https://app.beddertravel.com/business/${business.id}`}
+        url={`https://www.beddertravel.com/business/${business.id}`}
         className={classes.shareDiv}
         subject={`Discover ${business.name} on Bedder Travel.`}
       >
