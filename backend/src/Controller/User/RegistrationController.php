@@ -91,7 +91,6 @@ class RegistrationController extends BaseRestController
             if($isUser instanceof User || $isUserByEmail instanceof User) {
                 $yoUser = $isUser ? $isUser : $isUserByEmail;
                 $yoUser->setFacebookId($fRes['id']);
-                $yoUser->setFacebookPayload($fPayload);
 
                 $this->getDoctrine()->getManager()->persist($yoUser);
                 $this->getDoctrine()->getManager()->flush();
@@ -114,7 +113,6 @@ class RegistrationController extends BaseRestController
             $user->setRoles(['ROLE_USER', 'ROLE_EXPLORER']);
 
             $user->setFacebookId($fRes['id']);
-            $user->setFacebookPayload($fPayload);
 
             $this->getDoctrine()->getManager()->persist($user);
             $this->getDoctrine()->getManager()->flush();

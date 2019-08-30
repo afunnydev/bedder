@@ -34,7 +34,6 @@ class LoginController extends BaseRestController
                 if ($user->getIsBlocked()) {
                     return $this->renderErrors(['Your user has been blocked by an admin. Please contact info@beddertravel.com for more information.']);
                 }
-                $user->setFacebookPayload($fPayload);
                 $token = $this->get('lexik_jwt_authentication.encoder')
                     ->encode([
                         'email' => $user->getEmail(),

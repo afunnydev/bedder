@@ -90,11 +90,6 @@ class User implements UserInterface, \JsonSerializable
     private $roles = [];
 
     /**
-     * @ORM\Column(type="string", length=1000, nullable=true)
-     */
-    private $facebookPayload = null;
-
-    /**
      * @ORM\Column(type="bigint", nullable=true, unique=true)
      */
     private $facebookId;
@@ -737,30 +732,6 @@ class User implements UserInterface, \JsonSerializable
     public function getPasswordReset()
     {
         return $this->passwordReset;
-    }
-
-    /**
-     * Set facebookPayload.
-     *
-     * @param string|null $facebookPayload
-     *
-     * @return User
-     */
-    public function setFacebookPayload($facebookPayload = null)
-    {
-        $this->facebookPayload = serialize($facebookPayload);
-
-        return $this;
-    }
-
-    /**
-     * Get facebookPayload.
-     *
-     * @return string|null
-     */
-    public function getFacebookPayload()
-    {
-        return unserialize($this->facebookPayload);
     }
 
     /**
