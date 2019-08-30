@@ -27,6 +27,10 @@ We use **annotations** to make the routing of our application. The routing is an
 
 This project uses Doctrine as an ORM for a MySQL database.
 
+### Migrations
+
+During the release phase of each Heroku deploy, the database migrations are executed. Simply make sure to generate them in your commit by using ```php bin/console doctrine:migrations:diff```. *This could be automated to run in pre-commit, but it currently isn't.*.
+
 ## Authentication
 
 ## Email Templates

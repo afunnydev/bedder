@@ -25,3 +25,9 @@ It is deployed on Heroku by pushing on the heroku origin. For example, if the or
 ```
 git subtree push --prefix backend heroku-backend master
 ```
+
+You can also run one-off processes from a Heroku container by using the Heroku CLI.
+
+```
+heroku run "php bin/console doctrine"
+```
