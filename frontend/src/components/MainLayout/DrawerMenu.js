@@ -26,10 +26,7 @@ import Footer from './Footer';
 const styles = {
   wrapper: {
     paddingTop: 0,
-    width: 400,
-  },
-  button: {
-    width: 400,
+    width: '100%',
   },
   activeText: {
     fontWeight: 'bold',

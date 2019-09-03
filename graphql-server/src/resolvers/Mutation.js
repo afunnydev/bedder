@@ -157,6 +157,8 @@ const Mutation = {
       data.phone = args.ownerPhone;
     }
 
+    console.log(data);
+
     const options = {
       json: true,
       headers: { "Authorization": "Bearer " + context.token}

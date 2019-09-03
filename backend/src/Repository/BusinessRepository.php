@@ -42,8 +42,6 @@ class BusinessRepository extends ServiceEntityRepository
             ->innerJoin('b.businessUnits', 'bu')
             ->leftJoin('b.address', 'ba')
 
-            ->addSelect('GEO_DISTANCE(:lat, :lon, ba.lat, ba.lon) as distance')
-
             ->addSelect('b.id as businessId')
             ->addSelect('bu.id as businessUnitId')
 
@@ -51,11 +49,9 @@ class BusinessRepository extends ServiceEntityRepository
             ->andWhere('b.status >= :bStatus')
             ->andWhere('bu.maxPersons >= '.$minPersons)
             ->andWhere('(bu.bedsKing+bu.bedsQueen+bu.bedsSimple) >= '.$numBeds)
-            ->groupBy('ba.id, bu.id')
+            // ->groupBy('ba.id, bu.id')
             ->setParameter('bIds', $bIds)
-            ->setParameter('lat', $lat)
             ->setParameter('bStatus', StatusService::STATUS_LIVE)
-            ->setParameter('lon', $lon)
             // This orderBy is needed because the selected business unit is the last business unit. By ordering rows, we make sure that the cheapest available unit will be selected.
             ->orderBy('bu.fullRate','DESC');
             // I tried to do this another way. This leftJoin works to get the cheapest available unit, but if the unit doesn't meet the other requirements, it selects nothing (not the second cheapest unit) :'( BTW, this leftJoin is done "manually" because it was the only way to use 'WITH' and pass a condition. Manully meaning I used App\Entity\BusinessUnit instead of b.businessUnits (https://github.com/doctrine/orm/issues/7193)
@@ -98,10 +94,10 @@ class BusinessRepository extends ServiceEntityRepository
             if($sortBy) {
                 switch ($sortBy) {
                     case 'distanceCityCenterDown':
-                        $qb->orderBy('distance','DESC');
+                        // $qb->orderBy('distance','DESC');
                         break;
                     case 'distanceCityCenterUp':
-                        $qb->orderBy('distance','ASC');
+                        // $qb->orderBy('distance','ASC');
                         break;
                     case 'ratingDown':
                         $qb->orderBy('b.reviewsAvg','ASC');

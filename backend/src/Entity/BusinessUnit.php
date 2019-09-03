@@ -40,12 +40,12 @@ class BusinessUnit implements \JsonSerializable
     private $fullRate;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="smallint")
      */
     private $maxPersons = 1;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="smallint")
      */
     private $numUnits = 1;
 
@@ -60,19 +60,19 @@ class BusinessUnit implements \JsonSerializable
     private $equipment;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=64)
+     * @ORM\Column(type="smallint")
      */
-    private $bedsKing;
+    private $bedsKing = 0;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=64)
+     * @ORM\Column(type="smallint")
      */
-    private $bedsQueen;
+    private $bedsQueen = 0;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=64)
+     * @ORM\Column(type="smallint")
      */
-    private $bedsSimple;
+    private $bedsSimple = 0;
 
     /**
      * @ORM\Column(name="created_at", type="datetime", nullable=false)

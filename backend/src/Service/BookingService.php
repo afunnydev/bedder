@@ -205,8 +205,8 @@ class BookingService
         $units = $this->getAvailableUnits($from, $to);
         $res = $this->businessRepository->search(
             $units,
-            $form->get('lat')->getData(),
-            $form->get('lon')->getData(),
+            (float) $form->get('lat')->getData(),
+            (float) $form->get('lon')->getData(),
             $form->get('minPersons')->getData(),
             $form->get('numBed')->getData(),
             $form->get('pageNum')->getData(),

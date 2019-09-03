@@ -21,7 +21,7 @@ class Business implements \JsonSerializable
     private $id;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":false})
      */
     private $smsValidation = false;
 
@@ -81,17 +81,17 @@ class Business implements \JsonSerializable
     private $howToFind;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", options={"default":0})
      */
     private $reviewsNum = 0;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", options={"default":0})
      */
     private $reviewsSum = 0;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", options={"default":0})
      */
     private $reviewsAvg = 0;
 

@@ -10,7 +10,8 @@ const LeftDrawer = (props) => {
 
   const styles = {
     drawerPaper: {
-      paddingTop: 64,
+      paddingTop: 56,
+      minWidth: '300px'
     },
     drawerBackdrop: {
       backgroundColor: 'rgba(255, 255, 255, 0.5)',

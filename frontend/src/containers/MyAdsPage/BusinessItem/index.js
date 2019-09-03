@@ -96,7 +96,7 @@ const BusinessItem = ({ classes, business }) => (
       component={Link}
       to={`/business/${business.id}`}
       className={classes.content}
-      >
+    >
       <div className={classes.details} align="right">
         <div className={classes.baseOn}>
           Based on <br /> {business.reviewsNum} reviews
@@ -112,7 +112,7 @@ const BusinessItem = ({ classes, business }) => (
         {business.name}
       </Typography>
       <Typography variant="subtitle2" className={classes.reservations}>
-        {business.bookingsCount} reservations
+        {business.bookingsCount || 0} reservations
       </Typography>
       <FacebookShareButton
         url={`https://www.beddertravel.com/business/${business.id}`}

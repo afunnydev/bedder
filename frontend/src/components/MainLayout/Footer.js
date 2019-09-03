@@ -47,9 +47,7 @@ const StyledHr = styled.hr`
 const FooterGrid = styled(Grid)`
   background-color: black;
   color: white;
-  padding-top: 30px;
-  padding-bottom: 40px;
-  height: 325px;
+  padding: 30px 20px 40px 20px;
 `;
 
 // I admit the margin-top could be done more elegantly :)
@@ -70,7 +68,7 @@ const Footer = ({ location }) => (
             <li><Link to="/about">Learn more</Link></li>
             <li><Link to="/terms-and-conditions">Terms & Conditions</Link></li>
             <li><Link to="/privacy-policy">Privacy Policy</Link></li>
-            <li><Link to="#">Blog</Link></li>
+            <li><a href="https://blog.beddertravel.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
           </WhiteA>
         </Grid>
         <Grid item xs={12} sm={12} md={4}>

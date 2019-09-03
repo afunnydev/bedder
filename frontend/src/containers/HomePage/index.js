@@ -90,7 +90,7 @@ import SearchBar from '../../components/SearchBar/Loadable';
 
 const styles = theme => ({
   headerImageContainer: {
-    height: 'calc(100vh - 300px)',
+    minHeight: 'calc(100vh - 64px)',
     backgroundImage: `url(${BgImage})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -102,7 +102,7 @@ const styles = theme => ({
     transition: 'all linear .2s',
   },
   headerImageContainerMobile: {
-    height: 'calc(100vh - 100px)',
+    minHeight: 'calc(100vh - 56px)',
     backgroundImage: `url(${BgImage})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -110,7 +110,7 @@ const styles = theme => ({
     backgroundBlendMode: 'overlay',
     color: '#fff',
     textAlign: 'center',
-    paddingTop: 40,
+    paddingTop: 10,
     transition: 'all linear .2s',
   },
   mobileMapBtn: {
@@ -444,18 +444,10 @@ export class HomePage extends React.Component {
                       xs={12}
                       className={classes.headerImageContainerMobile}
                     >
-                      <Typography variant="h1" color="inherit">
-                        Let's find a perfect hotel
-                      </Typography>
-                      {/* <Typography variant="subheading" color="inherit">
-                        We have exclusivity among the thousands of hotels
-                      </Typography> */}
-
                       <SearchBar
                         submitting={this.props.submitting}
                         searchCallback={this.searchCallback}
                       />
-
                     </Grid>
                   </Grid>
                 </Grid>
@@ -467,7 +459,7 @@ export class HomePage extends React.Component {
                 <Grid
                   container
                   justify="center"
-                  style={{ marginBottom: '-1em', position: 'relative' }}
+                  style={{ position: 'relative' }}
                 >
                   <Collapse
                     style={{ width: '100%' }}

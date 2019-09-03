@@ -17,19 +17,13 @@ import { compose } from 'redux';
 
 const styles = {
   userThumb: {
-    width: 400,
-    height: 110,
+    width: '100%',
+    padding: '20px 0px',
     backgroundImage: `url(${BgImage})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
-    backgroundColor: 'rgba(141, 64, 65, 0.2)', //#4b418c rgb(75, 65, 140)  #8d4041 rgb(141, 64, 65)
+    backgroundColor: 'rgba(141, 64, 65, 0.2)',
     backgroundBlendMode: 'screen',
-  },
-  gridContainer: {
-    height: '100%',
-  },
-  badge: {
-
   },
   avatar: {
     margin: 'auto',
@@ -53,7 +47,7 @@ const DrawerHeader = ({ user, userRole }) => {
   const userPic = user && user.photos && user.photos.byId && user.photos.byId[1] && user.photos.byId[1].data;
   return (
     <Paper style={styles.userThumb} elevation={0} square>
-      <Grid container alignContent="center" alignItems="center" justify="center" height="100%" style={styles.gridContainer}>
+      <Grid container alignContent="center" alignItems="center" justify="center">
         <Grid item xs={3} >
           <Grid item style={styles.avatar}>
             { user

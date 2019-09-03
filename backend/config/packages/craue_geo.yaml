@@ -1,2 +1,3 @@
 craue_geo:
   enable_postal_code_entity: false
+  flavor: postgresql

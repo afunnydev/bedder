@@ -18,7 +18,7 @@ const DrawerMenuItem = ({ to, onClick, children, client }) => {
       button
       component={to ? Link : null}
       to={to}
-      style={{ width: 400 }}
+      style={{ width: '100%' }}
       onClick={adjustedOnClick}
     >
       <ListItemText

@@ -189,8 +189,10 @@ class BusinessService
             $business->setName($businessName);
             $business->setManageUser($user);
 
-            if($form->offsetExists('phone')) {
+            if($form->offsetExists('phone') && strlen($form->get('phone')->getData()) > 0) {
                 $business->setSmsValidation(true);
+            } else {
+                $business->setSmsValidation(false);
             }
 
             $businessAddress = new Address();
@@ -205,7 +207,7 @@ class BusinessService
             if ($owner) {
                 $business->setOwnerUser($owner);
                 $this->statusService->statusDraft($business);
-                $this->notificationService->notifyNewBusiness($business);
+                // $this->notificationService->notifyNewBusiness($business);
             } else {
                 $this->statusService->statusPendingOwner($business);
 
