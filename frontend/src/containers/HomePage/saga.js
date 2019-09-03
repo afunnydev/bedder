@@ -50,15 +50,20 @@ export function* makeSearch(action) {
 
   const sortBy = yield select(makeSelectSortBy());
 
-  const requestURL = `${BedderConfig.getApiUrl()}/booking/search?XDEBUG_SESSION_START=phpstorm`;
+  const requestURL = `${BedderConfig.getApiUrl()}/booking/search`;
+
+  let headers = {
+    'Content-Type': 'application/json',
+  };
+
+  if (Bedder.getUser()) {
+    headers.Authorization = Bedder.getHeaderToken();
+  }
 
   try {
     const res = yield call(request, requestURL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: Bedder.getHeaderToken(),
-      },
+      headers,
       body: JSON.stringify({
         location,
         lat,

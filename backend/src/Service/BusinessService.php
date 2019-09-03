@@ -207,7 +207,7 @@ class BusinessService
             if ($owner) {
                 $business->setOwnerUser($owner);
                 $this->statusService->statusDraft($business);
-                // $this->notificationService->notifyNewBusiness($business);
+                $this->notificationService->notifyNewBusiness($business);
             } else {
                 $this->statusService->statusPendingOwner($business);
 

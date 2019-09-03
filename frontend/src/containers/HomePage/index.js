@@ -119,7 +119,6 @@ const styles = theme => ({
     backgroundPosition: -20,
     textAlign: 'center',
     color: theme.palette.primary.main,
-    // fontSize: 18,
   },
   mobileMapBtnMap: {
     padding: '10px 0px',
