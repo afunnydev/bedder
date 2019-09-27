@@ -10,30 +10,10 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 import MessageError from 'components/MessageError';
+import ReviewItem from './ReviewItem.js';
 
 const StyledPaper = styled(Paper)`
   padding: 25px;
-`;
-
-const ReviewGrid = styled(Grid)`
-  span.rating {
-    background-color: #8f3f3f;
-    padding: 4px 10px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    color: white;
-  }
-  span.date {
-    font-weight: 700;
-    display: block;
-    font-size: 12px;
-  }
-  span.room {
-    display: block;
-    font-size: 10px;
-    font-style: italic;
-  }
 `;
 
 const BUSINESS_REVIEWS_QUERY = gql`
@@ -51,14 +31,6 @@ const BUSINESS_REVIEWS_QUERY = gql`
     }
   }
 `;
-
-const ReviewItem = ({ body, date, roomName, rating }) => (
-  <ReviewGrid item xs={12} sm={6} md={4}>
-    <p><span className="rating">{rating}</span>{body}</p>
-    <span className="date">{date}</span>
-    <span className="room">Stayed in {roomName}</span>
-  </ReviewGrid>
-);
 
 export default class BusinessViewReviews extends React.Component {
   static propTypes = {
@@ -104,7 +76,7 @@ export default class BusinessViewReviews extends React.Component {
                       }}
                       onClick={this.seeMore}
                     >
-                      See more reviews >
+                      See more reviews &gt;
                     </button>
                   </Grid>}
                 </React.Fragment>

@@ -85,13 +85,6 @@ class BedderValidator {
     };
   }
 
-  getAskQuestion() {
-    return {
-      subject: {},
-      message: {},
-    };
-  }
-
   getSupportTicket() {
     return {
       subject: {},

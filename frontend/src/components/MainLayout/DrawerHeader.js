@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Paper from '@material-ui/core/Paper';
@@ -52,8 +53,7 @@ const DrawerHeader = ({ user, userRole }) => {
           <Grid item style={styles.avatar}>
             { user
               ? <Avatar component={Link} to="/profile" src={userPic ? userPic : ExampleImage} alt="avatar" style={styles.avatar} />
-              // : <Avatar alt="avatar" style={styles.avatar}><Link to="/signIn"> <MoodIcon style={styles.avatarIcon} /> </Link> </Avatar>
-              : <Avatar alt="avatar" style={styles.avatar}><Link to="/signIn"> <PersonIcon style={styles.avatarIcon} /> </Link> </Avatar>
+              : <Avatar alt="avatar" style={styles.avatar}><Link to="/auth"> <PersonIcon style={styles.avatarIcon} /> </Link> </Avatar>
             }
           </Grid>
         </Grid>
@@ -62,7 +62,7 @@ const DrawerHeader = ({ user, userRole }) => {
 
             { user
               ? <Typography variant="subtitle1">Hello, {user.name}</Typography>
-              : <Typography variant="subtitle1"><Link to="/auth/signUp">Sign Up</Link>  or <Link to="/auth/signIn">Sign In</Link></Typography>
+              : <Typography variant="subtitle1"><Link to="/auth/signUp">Sign Up</Link>  or <Link to="/auth">Sign In</Link></Typography>
             }
 
           </Grid>
@@ -79,6 +79,11 @@ const DrawerHeader = ({ user, userRole }) => {
       </Grid>
     </Paper>
   );
+};
+
+DrawerHeader.propTypes = {
+  user: PropTypes.object,
+  userRole: PropTypes.string
 };
 
 export default compose(WithUserContext, WithRoleContext)(DrawerHeader);

@@ -13,6 +13,13 @@ collections:
     editor:
       preview: false
     files:
+      - name: "home"
+        label: "Home"
+        file: "frontend/src/containers/HomePage/text.json"
+        description: "Texte pour la page Home"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string"}
       - name: "faq"
         label: "FAQ"
         file: "frontend/src/containers/FaqPage/data.json"

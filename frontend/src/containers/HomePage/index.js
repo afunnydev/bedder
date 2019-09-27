@@ -86,7 +86,7 @@ import ErrorNetwork from '../../components/ErrorNetwork';
 import ErrorResult from '../../components/ErrorResult';
 import Pagination from '../../components/Pagination';
 import SearchBar from '../../components/SearchBar/Loadable';
-
+import jsonText from './text.json';
 
 const styles = theme => ({
   headerImageContainer: {
@@ -443,6 +443,9 @@ export class HomePage extends React.Component {
                       xs={12}
                       className={classes.headerImageContainerMobile}
                     >
+                      <Typography variant="h1" color="inherit" style={{fontSize: '28px', lineHeight: '30px', marginTop: '20px'}}>
+                        {jsonText.title}
+                      </Typography>
                       <SearchBar
                         submitting={this.props.submitting}
                         searchCallback={this.searchCallback}
@@ -467,10 +470,10 @@ export class HomePage extends React.Component {
                   >
                     <Grid item xs={12} className={headerImgClasses}>
                       <Typography variant="h1" color="inherit">
-                        Let's find a perfect hotel
+                        {jsonText.title}
                       </Typography>
                       <Typography variant="h4" color="inherit">
-                        We have exclusivity among the thousands of hotels
+                        {jsonText.subtitle}
                       </Typography>
                     </Grid>
                   </Collapse>

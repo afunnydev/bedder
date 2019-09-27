@@ -25,7 +25,7 @@ function Accordion(props) {
   return (
     <div className={classes.root}>
       {questions.map(question => (
-        <ExpansionPanel>
+        <ExpansionPanel key="question">
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className={classes.heading}>{question.question}</Typography>
           </ExpansionPanelSummary>
@@ -40,6 +40,7 @@ function Accordion(props) {
 
 Accordion.propTypes = {
   classes: PropTypes.object.isRequired,
+  questions: PropTypes.array.isRequired
 };
 
 export default withStyles(styles)(Accordion);
